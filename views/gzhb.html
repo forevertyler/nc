@@ -35,6 +35,14 @@
 			margin-top: 20px;
 			border-radius: 10px;
 		}
+		 @media screen and (max-width: 800px) {
+		 	.layui-btn-lg {
+			    height: 88px;
+			    line-height: 88px;
+			    padding: 0 25px;
+			    font-size: 32px;
+			}
+		 }
 
 	
     </style>
@@ -116,12 +124,12 @@ layui.use(['element', 'laydate','table','upload'], function(){
 		  // 截图
 		  // btnScreenshot.addEventListener("click", function () {
 		  video.addEventListener("click", function () {
-		  		alert("拍照成功，下滑看看效果吧")
+		  		
 		  		var parentDom=$('#screenshotsContainer').find("img");
 		  		var i=parentDom.length;
 		  	
 		  if (photoLength>i) {
-		  		
+		  		alert("拍照成功，下滑看看效果吧")
 		  		console.log(i)
 		  		let img = document.getElementById('screenshot');
 			    if (!img) {
@@ -139,6 +147,8 @@ layui.use(['element', 'laydate','table','upload'], function(){
 			    canvas.getContext("2d").drawImage(video, 0, 0);
 			    img.src = canvas.toDataURL("image/png");
 			    screenshotsContainer.prepend(img);
+			  }else{
+			  	alert("最多拍6张")
 			  }
 
 		    // return i;

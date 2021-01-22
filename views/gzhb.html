@@ -46,6 +46,7 @@
             <div class="layui-card">
 		          <div class="layui-card-header">工作汇报</div>
 		          <div class="layui-card-body">
+		          <span style="color:#aaa;">*拍照成功的照片双击可进行删除重拍</span>
 						<div class="btns">
 						  
 						  <button type="button" class="layui-btn layui-btn-lg"  id="btnScreenshot">
@@ -113,7 +114,7 @@ layui.use(['element', 'laydate','table','upload'], function(){
 	
 		  // 截图
 		  btnScreenshot.addEventListener("click", function () {
-		  		alert("拍照成功")
+		  		alert("拍照成功，下滑看看效果吧")
 		  		var parentDom=$('#screenshotsContainer').find("img");
 		  		var i=parentDom.length;
 		  	
@@ -137,7 +138,7 @@ layui.use(['element', 'laydate','table','upload'], function(){
 			    img.src = canvas.toDataURL("image/png");
 			    screenshotsContainer.prepend(img);
 			  }
-		
+
 		    // return i;
 		  });
 		  $('#screenshotsContainer').on('dblclick','img',function(){

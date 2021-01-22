@@ -56,6 +56,7 @@
 						  </div>
 						</div>
 
+
 		          </div>
 		    </div>
             
@@ -69,6 +70,7 @@ layui.use(['element', 'laydate','table','upload'], function(){
     	,laydate = layui.laydate
     	, $ = layui.jquery
     	,upload = layui.upload;
+    	var photoLength = 6;
 
 		window.onload = async function () {
 		  if (
@@ -101,17 +103,26 @@ layui.use(['element', 'laydate','table','upload'], function(){
 	
 		  // 截图
 		  btnScreenshot.addEventListener("click", function () {
-		    let img = document.getElementById('screenshot');
-		    if (!img) {
-		      img = document.createElement("img");
-		      img.id = 'screenshot';
-		      img.style.width = '100%';
-		    }
-		    canvas.width = video.videoWidth;
-		    canvas.height = video.videoHeight;
-		    canvas.getContext("2d").drawImage(video, 0, 0);
-		    img.src = canvas.toDataURL("image/png");
-		    screenshotsContainer.prepend(img);
+		  		
+		  		var parentDom=$('#screenshotsContainer').find("img");
+		  		var i=parentDom.length;
+		  	
+		  if (photoLength>i) {
+		  		
+		  		console.log(i)
+		  		let img = document.getElementById('screenshot');
+			    if (!img) {
+			      img = document.createElement("img");
+			      img.id = 'screenshot'+i;
+			      img.style.width = '100%';
+			    }
+			    canvas.width = video.videoWidth;
+			    canvas.height = video.videoHeight;
+			    canvas.getContext("2d").drawImage(video, 0, 0);
+			    img.src = canvas.toDataURL("image/png");
+			    screenshotsContainer.prepend(img);
+			  }
+		    return i;
 		  });
 
 		  async function init() {

@@ -113,7 +113,7 @@ layui.use(['element', 'laydate','table','upload'], function(){
 	
 		  // 截图
 		  btnScreenshot.addEventListener("click", function () {
-		  		
+		  		alert("拍照成功")
 		  		var parentDom=$('#screenshotsContainer').find("img");
 		  		var i=parentDom.length;
 		  	
@@ -137,7 +137,7 @@ layui.use(['element', 'laydate','table','upload'], function(){
 			    img.src = canvas.toDataURL("image/png");
 			    screenshotsContainer.prepend(img);
 			  }
-			  alert("拍照成功")
+		
 		    // return i;
 		  });
 		  $('#screenshotsContainer').on('dblclick','img',function(){

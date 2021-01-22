@@ -127,7 +127,7 @@
 						  <video autoplay id="video"></video>
 						  <div>	
 						  <form action="">
-						 	 <button type="button" class="layui-btn layui-btn-lg"><i class="layui-icon"></i>上传照片</button>
+						 	 <button id="shangchuan" type="button" class="layui-btn layui-btn-lg"><i class="layui-icon"></i>上传照片</button>
 						  
 
 						    <div id="screenshotsContainer">
@@ -242,6 +242,19 @@ layui.use(['element', 'laydate','table','upload'], function(){
 		  		})
 		  		
 		  });
+		  $("#shangchuan").click(function(){
+		  		var img_a = $("#screenshotsContainer").find("img").length;
+		  	
+		  		if(img_a>0){
+		  			alert("上传成功");
+		  			$("#screenshotsContainer").find("img").remove();
+		  		}else{
+		  			alert("请拍几张照片吧")
+		  		}
+
+		  	  
+		  	  
+		  })
 
 		  async function init() {
 		    // stopVideoStream();

@@ -18,16 +18,13 @@
 		}
 
 		#btnScreenshot {
-		  font-size: 22px;
-		  padding: 8px 10px;
-		  border: 2px solid #ccc;
-		  border-radius: 10px;
+		  font-size: 20px;
 		}
 
 		.video-screenshot {
-		  display: grid;
+		  /*display: grid;
 		  grid-template-columns: 1fr 1fr;
-		  grid-column-gap: 10px;
+		  grid-column-gap: 10px;*/
 		}
 
 	
@@ -42,18 +39,22 @@
 		          <div class="layui-card-body">
 						<div class="btns">
 						  
-						  <button class="button" id="btnScreenshot">
-						    <i class="iconfont icon-camera">获取照片</i>
+						  <button type="button" class="layui-btn"  id="btnScreenshot">
+						    <i class="layui-icon">&#xe65d;</i>
 						  </button>
+						   <button type="button" class="layui-btn"><i class="layui-icon"></i>上传照片</button>
 						  
 						</div>
 						<div class="video-screenshot">
 						  <video autoplay id="video"></video>
-						  <div>
+						  <div>	
+						  <form action="">
+
 						    <div id="screenshotsContainer">
 						      <canvas id="canvas" class="is-hidden"></canvas>
 						    </div>
 						  </div>
+						  </form>
 						</div>
 
 
@@ -113,8 +114,13 @@ layui.use(['element', 'laydate','table','upload'], function(){
 		  		let img = document.getElementById('screenshot');
 			    if (!img) {
 			      img = document.createElement("img");
-			      img.id = 'screenshot'+i;
+			      img.className = 'screenshot';
 			      img.style.width = '100%';
+			      // var closes = document.createElement("span");
+			      // closes.id = 'close'+i;
+			      // closes.class = 'closethis'
+
+
 			    }
 			    canvas.width = video.videoWidth;
 			    canvas.height = video.videoHeight;
@@ -122,7 +128,10 @@ layui.use(['element', 'laydate','table','upload'], function(){
 			    img.src = canvas.toDataURL("image/png");
 			    screenshotsContainer.prepend(img);
 			  }
-		    return i;
+		    // return i;
+		  });
+		  $('#screenshotsContainer').on('dblclick','img',function(){
+		  		$(this).remove();
 		  });
 
 		  async function init() {
